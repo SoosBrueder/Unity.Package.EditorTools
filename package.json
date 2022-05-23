@@ -1,0 +1,15 @@
+{
+    "name": "com.soosbrueder.editortools",
+    "version": "1.0.0",
+    "displayName": "Custom Editor Tools",
+    "description": "Contains an Array of tools to ease the use of the Unity Editor.",
+    "unity": "2021.3",
+    "keywords": [
+        "Tools"
+      ],
+      "author": {
+        "name": "SoosBrueder",
+        "email": "",
+        "url": "https://github.com/SoosBrueder"
+      }
+}
