@@ -6,10 +6,12 @@ namespace WeNeedAGoodOrganizationName.EditorTools
 {
     public static class FeatureFolderStructure
     {
-        private static readonly string _rootname = "FeatureName";
+        private static readonly string DATA_FOLDER = "/Assets";
 
-        // "Drive:/ProjectPath/Assets/OptionalSelection/_rootname/" + _subDirPaths
-        private static readonly string[] _subDirPaths = new string[]
+        private static readonly string ROOT_NAME = "FeatureName";
+
+        // "Drive:/ProjectPath/Assets/OptionalSelection/ROOT_NAME/" + SUB_DIR_PATHS
+        private static readonly string[] SUB_DIR_PATHS = new string[]
         {
             "Resources",
             "Scripts",
@@ -36,7 +38,7 @@ namespace WeNeedAGoodOrganizationName.EditorTools
 
         /// <summary>
         /// Returns the path where the feature folder will be placed in.
-        /// If no location is selected it will return the standard Asset folder path.
+        /// If no location is selected it will return the standard Assets folder path.
         /// </summary>
         private static string GetProjectPath()
         {
@@ -44,7 +46,7 @@ namespace WeNeedAGoodOrganizationName.EditorTools
             string basePath = Application.dataPath;
             
             // Remove the "/Assets" at the end because we use it from the local path.
-            basePath = basePath.Remove(basePath.Length - 7, 7);
+            basePath = basePath.Remove(basePath.Length - DATA_FOLDER.Length, DATA_FOLDER.Length);
 
             if (localPath == "") localPath = "Assets";
 
@@ -53,9 +55,9 @@ namespace WeNeedAGoodOrganizationName.EditorTools
 
         private static void CreateDirectories(string basePath)
         {
-            basePath = basePath + "/" + _rootname;
+            basePath = basePath + "/" + ROOT_NAME;
 
-            foreach (string dirPath in _subDirPaths)
+            foreach (string dirPath in SUB_DIR_PATHS)
             {
                 Directory.CreateDirectory(basePath + "/" + dirPath);
             }
